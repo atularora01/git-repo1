@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java-wsdl-mapping version="1.1" xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">
+    <package-mapping>
+        <package-type>example</package-type>
+        <namespaceURI>http://example</namespaceURI>
+    </package-mapping>
+    <java-xml-type-mapping>
+        <java-type>example.InsufficientFundFaultType</java-type>
+        <root-type-qname xmlns:rtq="http://example">rtq:InsufficientFundFault</root-type-qname>
+        <qname-scope>element</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>example.AccountNotExistFault</java-type>
+        <root-type-qname xmlns:rtq="http://example">rtq:AccountNotExistFault</root-type-qname>
+        <qname-scope>element</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>java.lang.String</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:string</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>boolean</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:boolean</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>example.AccountNotExistFault</java-type>
+        <anonymous-type-qname>http://example:>AccountNotExistFault</anonymous-type-qname>
+        <qname-scope>complexType</qname-scope>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>example.InsufficientFundFaultType</java-type>
+        <root-type-qname xmlns:rtq="http://example">rtq:InsufficientFundFaultType</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>balance</java-variable-name>
+            <xml-element-name>balance</xml-element-name>
+        </variable-mapping>
+        <variable-mapping>
+            <java-variable-name>requestedFund</java-variable-name>
+            <xml-element-name>requestedFund</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>example.AccountInsufficientFundFaultType</java-type>
+        <root-type-qname xmlns:rtq="http://example">rtq:AccountInsufficientFundFaultType</root-type-qname>
+        <qname-scope>complexType</qname-scope>
+        <variable-mapping>
+            <java-variable-name>account</java-variable-name>
+            <xml-element-name>account</xml-element-name>
+        </variable-mapping>
+    </java-xml-type-mapping>
+    <java-xml-type-mapping>
+        <java-type>int</java-type>
+        <root-type-qname xmlns:rtq="http://www.w3.org/2001/XMLSchema">rtq:int</root-type-qname>
+        <qname-scope>simpleType</qname-scope>
+    </java-xml-type-mapping>
+    <exception-mapping>
+        <exception-type>example.AccountNotExistFault</exception-type>
+        <wsdl-message xmlns:em="http://example">em:AccountNotExistFaultMessage</wsdl-message>
+    </exception-mapping>
+    <exception-mapping>
+        <exception-type>example.AccountInsufficientFundFaultType</exception-type>
+        <wsdl-message xmlns:em="http://example">em:InsufficientFundFaultMessage</wsdl-message>
+        <constructor-parameter-order>
+            <element-name>balance</element-name>
+            <element-name>requestedFund</element-name>
+            <element-name>account</element-name>
+        </constructor-parameter-order>
+    </exception-mapping>
+    <exception-mapping>
+        <exception-type>example.InsufficientFundFaultType</exception-type>
+        <wsdl-message xmlns:em="http://example">em:InsufficientFundFaultMessage</wsdl-message>
+        <constructor-parameter-order>
+            <element-name>balance</element-name>
+            <element-name>requestedFund</element-name>
+        </constructor-parameter-order>
+    </exception-mapping>
+    <service-interface-mapping>
+        <service-interface>example.BankService</service-interface>
+        <wsdl-service-name xmlns:sim="http://example">sim:BankService</wsdl-service-name>
+        <port-mapping>
+            <port-name>Bank</port-name>
+            <java-port-name>Bank</java-port-name>
+        </port-mapping>
+    </service-interface-mapping>
+    <service-endpoint-interface-mapping>
+        <service-endpoint-interface>example.Bank</service-endpoint-interface>
+        <wsdl-port-type xmlns:seimwpt="http://example">seimwpt:Bank</wsdl-port-type>
+        <wsdl-binding xmlns:seimwb="http://example">seimwb:BankSoapBinding</wsdl-binding>
+        <service-endpoint-method-mapping>
+            <java-method-name>withdraw</java-method-name>
+            <wsdl-operation>withdraw</wsdl-operation>
+            <wrapped-element/>
+            <method-param-parts-mapping>
+                <param-position>0</param-position>
+                <param-type>java.lang.String</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://example">mppm:withdrawRequest</wsdl-message>
+                    <wsdl-message-part-name>account</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <method-param-parts-mapping>
+                <param-position>1</param-position>
+                <param-type>int</param-type>
+                <wsdl-message-mapping>
+                    <wsdl-message xmlns:mppm="http://example">mppm:withdrawRequest</wsdl-message>
+                    <wsdl-message-part-name>amount</wsdl-message-part-name>
+                    <parameter-mode>IN</parameter-mode>
+                </wsdl-message-mapping>
+            </method-param-parts-mapping>
+            <wsdl-return-value-mapping>
+                <method-return-value>boolean</method-return-value>
+                <wsdl-message xmlns:wrvm="http://example">wrvm:withdrawResponse</wsdl-message>
+                <wsdl-message-part-name>accepted</wsdl-message-part-name>
+            </wsdl-return-value-mapping>
+        </service-endpoint-method-mapping>
+    </service-endpoint-interface-mapping>
+</java-wsdl-mapping>
