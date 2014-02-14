@@ -12,7 +12,7 @@ public class AccountInsufficientFundFaultType_DeserProxy  extends example.Insuff
     private java.lang.String account;
 
     public AccountInsufficientFundFaultType_DeserProxy() {
-    	System.out.println("test changed");
+    	System.out.println("test changed 40000");
     }
 
     public java.lang.String getAccount() {
